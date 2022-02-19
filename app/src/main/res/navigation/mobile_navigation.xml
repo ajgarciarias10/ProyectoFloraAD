@@ -22,4 +22,14 @@
         android:name="com.ieszv.progmulti.proyectofloraad.ui.Flora.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_add_flora"
+        android:name="com.ieszv.progmulti.proyectofloraad.ui.Flora.AddFlora"
+        android:label="fragment_add_flora"
+        tools:layout="@layout/fragment_add_flora" />
+    <fragment
+        android:id="@+id/nav_add_Image"
+        android:name="com.ieszv.progmulti.proyectofloraad.ui.Imagen.AddImageFragment"
+        android:label="fragment_add_image"
+        tools:layout="@layout/fragment_add_image" />
 </navigation>
