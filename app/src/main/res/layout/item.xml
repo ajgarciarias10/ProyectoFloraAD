@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#BF0F0F"
         app:cardCornerRadius="150dp"
-        app:cardElevation="10dp"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,7 +27,7 @@
                 app:layout_constraintGuide_begin="205dp" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/iv_flora"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"

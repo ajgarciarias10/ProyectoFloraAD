@@ -1,6 +1,7 @@
 package com.ieszv.progmulti.proyectofloraad.ui.Flora;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.ieszv.progmulti.proyectofloraad.databinding.FragmentSlideshowBinding;
+import com.ieszv.progmulti.proyectofloraad.view.FloraAdapter;
 
 public class SlideshowFragment extends Fragment {
 
@@ -27,14 +30,23 @@ public class SlideshowFragment extends Fragment {
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        initialize();
+
         return root;
+    }
+
+    private void initialize() {
+        FloraAdapter floraAdapter = new FloraAdapter(getContext());
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.recyclerView.setAdapter(floraAdapter);
+
+        slideshowViewModel.getFloraLiveData().observe(this, floraPlural -> {
+            Log.v("xyzyx", floraPlural.toString());
+            floraAdapter.setFloraList(floraPlural);
+
+
+        });
+        slideshowViewModel.getFlora();
     }
 
     @Override

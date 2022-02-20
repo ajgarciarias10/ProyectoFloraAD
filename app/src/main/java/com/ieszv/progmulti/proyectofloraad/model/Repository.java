@@ -47,7 +47,7 @@ public class Repository {
 
     private static FloraClient getFloraClient() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://informatica.ieszaidinvergeles.org:10099/ad/felixRDLFApp/public/")
+                .baseUrl("https://informatica.ieszaidinvergeles.org:10020/AD/felixRDLFApp/public/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit.create(FloraClient.class);
