@@ -20,12 +20,12 @@
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.ieszv.progmulti.proyectofloraad.ui.Flora.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Flora"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/nav_add_flora"
         android:name="com.ieszv.progmulti.proyectofloraad.ui.Flora.AddFlora"
-        android:label="fragment_add_flora"
+        android:label="Add Flora"
         tools:layout="@layout/fragment_add_flora" />
     <fragment
         android:id="@+id/nav_add_Image"

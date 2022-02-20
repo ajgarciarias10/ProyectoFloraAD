@@ -17,7 +17,7 @@ import com.ieszv.progmulti.proyectofloraad.model.entity.Flora;
         //Declaramos el objeto pasar luego al tocar el item
         public Flora flora;
         //Declaramos los texView a utilizar en el Adaptador
-        public TextView tv_flora,tv_biotiopo,tv_id;
+        public TextView tv_flora,tv_biotiopo,tv_id,tv_nombre;
         //Declaramos la imagen a utilizar en el Adaptador
         public ImageView iv_Flora;
 
@@ -27,6 +27,7 @@ import com.ieszv.progmulti.proyectofloraad.model.entity.Flora;
             tv_flora = itemView.findViewById(R.id.tv_flora);
             tv_biotiopo = itemView.findViewById(R.id.tv_biotipo);
             iv_Flora = itemView.findViewById(R.id.iv_flora);
+            tv_nombre = itemView.findViewById(R.id.tv_nombre);
 
         }
     }

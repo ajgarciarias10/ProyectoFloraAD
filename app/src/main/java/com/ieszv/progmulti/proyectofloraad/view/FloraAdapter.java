@@ -36,8 +36,9 @@ public class FloraAdapter extends RecyclerView.Adapter<ViewHolderFlora> {
         Flora flora = floraList.get(position);
         holder.flora = flora;
         String url ="https://informatica.ieszaidinvergeles.org:10020/AD/felixRDLFApp/public/api/imagen/" + flora.getId() + "/flora";
-        holder.tv_id.setText(flora.getIdentificacion());
-        holder.tv_flora.setText(flora.getNombre());
+        holder.tv_id.setText(String.valueOf(flora.getId()));
+        holder.tv_flora.setText(flora.getBiotipo());
+        holder.tv_nombre.setText(flora.getNombre());
         holder.tv_biotiopo.setText(flora.getBiotipo());
         Glide.with(context).load(url).into(holder.iv_Flora);
 
