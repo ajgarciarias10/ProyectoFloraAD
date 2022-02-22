@@ -33,6 +33,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddImageFragment extends Fragment {
+    //ACCION EN EL CASO DE QUE LA FOTO SEA PEQUEÑA
+    private static final int ACTION_TAKE_PHOTO_B = 1;
+    private static final int ACTION_TAKE_PHOTO_S = 2;
+    //Ruta actual de la foto
+    private String mCurrentPhotoPath;
+    //Bits de imagenes para setearlo
+    private Bitmap mImageBitmap;
+    //Lo utilizamos para meternos en el album de fotos del telefono
+    private AlbumStorageDirFactory mAlbumStorageDirFactory = null;
+    //region Tipo de prefijo de fotos
+    private static final String JPEG_FILE_PREFIX = "IMG_";
+    private static final String JPEG_FILE_SUFFIX = ".jpg";
+    //endregion
     private ActivityResultLauncher<Intent> launcher;
     private Intent resultadoImagen = null;
     private AddImagenViewModel aivm;
@@ -49,7 +62,6 @@ public class AddImageFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAddImageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        launcher = getLauncher();
         binding.fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +78,7 @@ public class AddImageFragment extends Fragment {
         binding.ivImageFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectImage();
+                dispatchTakePictureIntent(ACTION_TAKE_PHOTO_S);
             }
         });
         return root;
@@ -84,28 +96,100 @@ public class AddImageFragment extends Fragment {
             aivm.saveImagen(resultadoImagen, imagen);
     }
 
-    ActivityResultLauncher<Intent> getLauncher() {
-        return registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    //respuesta al resultado de haber seleccionado una imagen
-                    if(result.getResultCode() == Activity.RESULT_OK) {
-                        //copyData(result.getData());
-                        resultadoImagen = result.getData();
+
+    //region evento que se mete en la camara
+    private void dispatchTakePictureIntent(int actionCode) {
+
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//la accion para sacar la imagen
+        switch (actionCode) {
+            //En el caso de que la imagen sea pequeña
+            case ACTION_TAKE_PHOTO_B:
+                File f = null;
+
+                try {
+                    f = setUpPhotoFile();
+                    mCurrentPhotoPath = f.getAbsolutePath();
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    f = null;
+                    mCurrentPhotoPath = null;
+                }
+                break;
+
+            default:
+                break;
+        } // switch
+
+        startActivityForResult(takePictureIntent, actionCode);
+    }
+    //endregion
+
+    private File setUpPhotoFile() throws IOException {
+
+        File f = createImageFile();
+        mCurrentPhotoPath = f.getAbsolutePath();
+
+        return f;
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = JPEG_FILE_PREFIX + timeStamp + "_";
+        File albumF = getAlbumDir();
+        File imageF = File.createTempFile(imageFileName, JPEG_FILE_SUFFIX, albumF);
+        return imageF;
+    }
+
+    private File getAlbumDir() {
+        File storageDir = null;
+
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+
+            storageDir = mAlbumStorageDirFactory.getAlbumStorageDir(getAlbumName());
+
+            if (storageDir != null) {
+                if (!storageDir.mkdirs()) {
+                    if (!storageDir.exists()) {
+                        Log.d("CameraSample", "failed to create directory");
+                        return null;
                     }
                 }
-        );
-    }
-    Intent getContentIntent() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        return intent;
+            }
+
+        } else {
+            Log.v(getString(R.string.app_name), "External storage is not mounted READ/WRITE.");
+        }
+
+        return storageDir;
     }
 
-    void selectImage() {
-        Intent intent = getContentIntent();
-        launcher.launch(intent);
+    private String getAlbumName() {
+        return getString(R.string.album_name);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+
+            case ACTION_TAKE_PHOTO_S: {
+                if (resultCode == RESULT_OK) {
+                    handleSmallCameraPhoto(data);
+                }
+                break;
+            } // ACTION_TAKE_PHOTO_S
+
+        } // switch
+    }
+
+    private void handleSmallCameraPhoto(Intent intent) {
+        Bundle extras = intent.getExtras();
+
+
+        mImageBitmap = (Bitmap) extras.get("data");
+        binding.ivDisplayimage.setImageBitmap(mImageBitmap);
+        binding.ivDisplayimage.setVisibility(View.VISIBLE);
+
+    }
 }

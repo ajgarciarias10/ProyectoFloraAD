@@ -38,7 +38,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_displayimage" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
@@ -109,5 +109,16 @@
             android:hint="Name"
             android:textColorHint="#C5BEBE" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/iv_displayimage"
+        android:layout_width="156dp"
+        android:layout_height="111dp"
+        android:layout_marginBottom="47dp"
+        android:src="@drawable/b790baff9464487883f4007a002f45b9"
+        app:layout_constraintBottom_toTopOf="@+id/iv_ImageFoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
