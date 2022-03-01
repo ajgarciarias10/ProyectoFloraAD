@@ -30,7 +30,6 @@ import android.widget.Toast;
 import com.ieszv.progmulti.proyectofloraad.R;
 import com.ieszv.progmulti.proyectofloraad.databinding.FragmentAddFloraBinding;
 import com.ieszv.progmulti.proyectofloraad.databinding.FragmentAddImageBinding;
-import com.ieszv.progmulti.proyectofloraad.model.Album.AlbumStorageDirFactory;
 import com.ieszv.progmulti.proyectofloraad.model.Repository;
 import com.ieszv.progmulti.proyectofloraad.model.api.FloraClient;
 import com.ieszv.progmulti.proyectofloraad.model.entity.Flora;
