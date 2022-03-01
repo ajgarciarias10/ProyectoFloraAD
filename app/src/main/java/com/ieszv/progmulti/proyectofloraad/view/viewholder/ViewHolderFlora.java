@@ -20,7 +20,8 @@ import com.ieszv.progmulti.proyectofloraad.model.entity.Flora;
         public TextView tv_flora,tv_biotiopo,tv_id,tv_nombre;
         //Declaramos la imagen a utilizar en el Adaptador
         public ImageView iv_Flora;
-
+        //Bundle
+        Bundle bundle;
         public ViewHolderFlora(@NonNull View itemView) {
             super(itemView);
             tv_id = itemView.findViewById(R.id.tv_id);
@@ -28,6 +29,12 @@ import com.ieszv.progmulti.proyectofloraad.model.entity.Flora;
             tv_biotiopo = itemView.findViewById(R.id.tv_biotipo);
             iv_Flora = itemView.findViewById(R.id.iv_flora);
             tv_nombre = itemView.findViewById(R.id.tv_nombre);
+            itemView.setOnClickListener(v -> {
+                bundle = new Bundle();
+                bundle.putParcelable("flora", flora);
+                Navigation.findNavController(itemView).navigate(R.id.action_nav_slideshow_to_editFloraFragment,bundle);
+
+            });
 
         }
     }

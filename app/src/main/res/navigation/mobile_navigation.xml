@@ -12,24 +12,42 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.ieszv.progmulti.proyectofloraad.ui.Imagen.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.ieszv.progmulti.proyectofloraad.ui.Flora.SlideshowFragment"
         android:label="Flora"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_slideshow" >
+        <action
+            android:id="@+id/action_nav_slideshow_to_editFloraFragment"
+            app:destination="@id/editFloraFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_add_flora"
         android:name="com.ieszv.progmulti.proyectofloraad.ui.Flora.AddFlora"
         android:label="Add Flora"
-        tools:layout="@layout/fragment_add_flora" />
+        tools:layout="@layout/fragment_add_flora" >
+        <action
+            android:id="@+id/action_nav_add_flora_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_add_flora_to_nav_add_Image"
+            app:destination="@id/nav_add_Image" />
+    </fragment>
     <fragment
         android:id="@+id/nav_add_Image"
         android:name="com.ieszv.progmulti.proyectofloraad.ui.Imagen.AddImageFragment"
-        android:label="fragment_add_image"
-        tools:layout="@layout/fragment_add_image" />
+        android:label="Add Image"
+        tools:layout="@layout/fragment_add_image">
+        <action
+            android:id="@+id/action_nav_add_Image_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFloraFragment"
+        android:name="com.ieszv.progmulti.proyectofloraad.ui.Flora.EditFloraFragment"
+        android:label="Edit Flora"
+        tools:layout="@layout/fragment_edit_flora">
+        <action
+            android:id="@+id/action_editFloraFragment_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+    </fragment>
 </navigation>

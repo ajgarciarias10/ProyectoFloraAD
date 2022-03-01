@@ -7,39 +7,6 @@
     android:background="@drawable/fondoflora"
     tools:context=".ui.Imagen.AddImageFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout5"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:textColorHint="@color/design_default_color_background"
-        app:boxStrokeColor="@color/primaryColor"
-        app:counterTextColor="@color/primaryColor"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_ImageFoto">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/idFLORA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="id"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/iv_ImageFoto"
-        android:layout_width="93dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginEnd="159dp"
-        android:src="@drawable/ic_baseline_add_a_photo_24"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_displayimage" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -47,9 +14,11 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:src="@drawable/ic_baseline_add_24"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/ivGaleria"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -59,15 +28,40 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:src="@drawable/ic_baseline_cancel_24"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivGaleria"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/design_default_color_background"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivGaleria"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_IDImagen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="IdFlora"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:textColor="#EFE9E9"
+            android:textColorHint="@color/design_default_color_background" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColorHint="@color/design_default_color_background"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +73,10 @@
             android:id="@+id/et_descripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Descipcion" />
+            android:hint="Descipcion"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:textColor="#EFE9E9" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -87,38 +84,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="361dp" />
+        app:layout_constraintGuide_begin="1dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout6"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
         android:textColorHint="#FAF0F0"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:textColor="#EFE9E9"
             android:textColorHint="#C5BEBE" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
-        android:id="@+id/iv_displayimage"
-        android:layout_width="156dp"
-        android:layout_height="111dp"
-        android:layout_marginBottom="47dp"
-        android:src="@drawable/b790baff9464487883f4007a002f45b9"
-        app:layout_constraintBottom_toTopOf="@+id/iv_ImageFoto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/ivGaleria"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_baseline_add_photo_alternate_24"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/fab_cancel"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fab_add"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

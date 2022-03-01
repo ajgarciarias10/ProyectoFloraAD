@@ -6,9 +6,9 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="#BF0F0F"
+        android:layout_width="412dp"
+        android:layout_height="264dp"
+        app:cardBackgroundColor="#3900B8D4"
         app:cardCornerRadius="150dp"
         app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
             <ImageView
                 android:id="@+id/iv_flora"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline3"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +44,7 @@
                 android:text="TextView"
                 android:textColor="#F4EBEB"
                 android:textSize="20sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/tv_nombre"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -57,6 +58,7 @@
                 android:text="TextView"
                 android:textColor="#F4EBEB"
                 android:textSize="20sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/tv_flora"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -70,6 +72,7 @@
                 android:text="TextView"
                 android:textColor="#F4EBEB"
                 android:textSize="20sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/tv_biotipo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -83,6 +86,7 @@
                 android:text="TextView"
                 android:textColor="#F4EBEB"
                 android:textSize="20sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
