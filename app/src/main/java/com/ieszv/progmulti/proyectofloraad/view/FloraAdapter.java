@@ -13,6 +13,9 @@ import com.bumptech.glide.Glide;
 import com.ieszv.progmulti.proyectofloraad.R;
 import com.ieszv.progmulti.proyectofloraad.model.entity.Flora;
 import com.ieszv.progmulti.proyectofloraad.view.viewholder.ViewHolderFlora;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,7 +42,7 @@ public class FloraAdapter extends RecyclerView.Adapter<ViewHolderFlora> {
         holder.tv_id.setText(String.valueOf(flora.getId()));
         holder.tv_flora.setText(flora.getBiotipo());
         holder.tv_nombre.setText(flora.getNombre());
-        holder.tv_biotiopo.setText(flora.getBiotipo());
+        //Picasso.get().load(url).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(holder.iv_Flora);
         Glide.with(context).load(url).into(holder.iv_Flora);
 
         Log.v("xyz",url);

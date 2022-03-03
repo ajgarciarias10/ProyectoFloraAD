@@ -20,6 +20,7 @@ import com.ieszv.progmulti.proyectofloraad.R;
 import com.ieszv.progmulti.proyectofloraad.databinding.FragmentEditFloraBinding;
 import com.ieszv.progmulti.proyectofloraad.model.entity.Flora;
 import com.ieszv.progmulti.proyectofloraad.ui.Imagen.AddImageFragment;
+import com.ieszv.progmulti.proyectofloraad.ui.MainActivity.MainActivity;
 import com.ieszv.progmulti.proyectofloraad.viewmodel.DeleteFloraViewModel;
 import com.ieszv.progmulti.proyectofloraad.viewmodel.DeleteImagenViewModel;
 import com.ieszv.progmulti.proyectofloraad.viewmodel.EditFloraViewModel;
@@ -30,6 +31,7 @@ public class EditFloraFragment extends Fragment {
 
     FragmentEditFloraBinding binding;
     Flora flora = new Flora();
+    Bundle bundle = new Bundle();
 
 
 
@@ -50,18 +52,16 @@ public class EditFloraFragment extends Fragment {
     }
 
     private void initialize() {
-        Bundle bundle = new Bundle();
         bundle = getArguments();
         flora = bundle.getParcelable("flora");
-
         seteandFloras();
-
         EditFloraViewModel evm = new ViewModelProvider(this).get(EditFloraViewModel.class);
         evm.getEditFloraLiveData().observe(this, new Observer<Long>() {
             @Override
             public void onChanged(Long aLong) {
                 if(aLong >= 0) {
-                    NavHostFragment.findNavController(EditFloraFragment.this).navigate(R.id.action_editFloraFragment_to_nav_slideshow);
+                    AddFlora.mode=2;
+                    NavHostFragment.findNavController(EditFloraFragment.this).navigate(R.id.action_editFloraFragment_to_nav_add_Image,bundle);
                 }
             }
         });

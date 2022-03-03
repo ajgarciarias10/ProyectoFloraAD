@@ -14,9 +14,10 @@ import android.widget.Toast;
 import com.ieszv.progmulti.proyectofloraad.R;
 import com.ieszv.progmulti.proyectofloraad.databinding.FragmentAddFloraBinding;
 import com.ieszv.progmulti.proyectofloraad.model.entity.Flora;
+import com.ieszv.progmulti.proyectofloraad.ui.MainActivity.MainActivity;
 import com.ieszv.progmulti.proyectofloraad.viewmodel.AddFloraViewModel;
   public class AddFlora extends Fragment {
-
+      public static int mode;
     Flora flora;
     FragmentAddFloraBinding  binding;
       public View onCreateView(@NonNull LayoutInflater inflater,
@@ -37,11 +38,13 @@ import com.ieszv.progmulti.proyectofloraad.viewmodel.AddFloraViewModel;
       }
 
       private void initialize() {
+          mode = 0;
           AddFloraViewModel avm = new ViewModelProvider(this).get(AddFloraViewModel.class);
           avm.getAddFloraLiveData().observe(this, new Observer<Long>() {
               @Override
               public void onChanged(Long aLong) {
                   if(aLong > 0) {
+                      mode=1;
                       NavHostFragment.findNavController(AddFlora.this)
                               .navigate(R.id.action_nav_add_flora_to_nav_add_Image);
                   } else {

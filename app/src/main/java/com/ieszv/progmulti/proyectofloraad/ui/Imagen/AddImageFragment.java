@@ -15,6 +15,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
@@ -34,12 +35,16 @@ import com.ieszv.progmulti.proyectofloraad.model.Repository;
 import com.ieszv.progmulti.proyectofloraad.model.api.FloraClient;
 import com.ieszv.progmulti.proyectofloraad.model.entity.Flora;
 import com.ieszv.progmulti.proyectofloraad.model.entity.Imagen;
+import com.ieszv.progmulti.proyectofloraad.ui.Flora.AddFlora;
+import com.ieszv.progmulti.proyectofloraad.ui.Flora.SlideshowViewModel;
+import com.ieszv.progmulti.proyectofloraad.ui.MainActivity.MainActivity;
 import com.ieszv.progmulti.proyectofloraad.viewmodel.AddFloraViewModel;
 import com.ieszv.progmulti.proyectofloraad.viewmodel.AddImagenViewModel;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class AddImageFragment extends Fragment {
@@ -49,7 +54,10 @@ public class AddImageFragment extends Fragment {
     private Intent resultadoImagen = null;
     public AddImagenViewModel avm;
     public Flora flora;
-    Repository repository;
+    private  Flora florita;
+    Long id;
+    SlideshowViewModel mavm ;
+    Bundle bundle = new Bundle();
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,6 +69,28 @@ public class AddImageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bundle = getArguments();
+
+
+
+        mavm = new ViewModelProvider(this).get(SlideshowViewModel.class); //obtengo viewmodel de la actividad
+        MutableLiveData<ArrayList<Flora>> floraList = mavm.getFloraLiveData();
+        mavm.getFlora();
+        floraList.observe(this,  floras -> {
+         if(AddFlora.mode == 1) {
+              id =  floras.get(mavm.getFloraLiveData().getValue().size() - 1).getId();
+             binding.etIDImagen.setText(floras.get(mavm.getFloraLiveData().getValue().size() - 1).getNombre() + "");
+         }else if(AddFlora.mode == 2){
+             florita = bundle.getParcelable("flora");
+                id = florita.getId();
+             binding.etIDImagen.setText(String.valueOf(florita.getNombre()));
+
+         }
+
+
+            AddFlora.mode=0;
+        });
+
         launcher = getLauncher();
         binding.fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,12 +147,16 @@ public class AddImageFragment extends Fragment {
 
 
     private void uploadDataImage() {
+
         Imagen imagen = new Imagen();
         String nombre = binding.Nombre.getText().toString();
         String descripcion = binding.etDescripcion.getText().toString();
-        Long idflora = Long.parseLong(binding.etIDImagen.getText().toString());
+
         if (!(nombre.trim().isEmpty() || descripcion.trim().isEmpty() || resultadoImagen == null)) {
-            imagen.idflora = idflora;
+
+
+                imagen.idflora =id;
+
             imagen.nombre = nombre;
             imagen.descripcion = descripcion;
             avm.saveImagen(resultadoImagen, imagen);

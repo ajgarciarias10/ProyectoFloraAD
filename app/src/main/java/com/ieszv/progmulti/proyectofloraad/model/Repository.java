@@ -2,6 +2,7 @@ package com.ieszv.progmulti.proyectofloraad.model;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.util.Log;
 
@@ -36,6 +37,7 @@ public class Repository {
     private static FloraClient floraClient;
     //region Creacion de datos cambiates para utlizarlo en el repositorio
         private MutableLiveData<ArrayList<Flora>> floraLiveData = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<Image>> imagenLiveData = new MutableLiveData<>();
         private MutableLiveData<Flora> floraLiveData2 = new MutableLiveData<>();
         private MutableLiveData<Long> editFloraLiveData = new MutableLiveData<>();
         private MutableLiveData<Long> addFloraLiveData = new MutableLiveData<>();
@@ -60,7 +62,9 @@ public class Repository {
         return retrofit.create(FloraClient.class);
     }
 
-
+    public MutableLiveData<ArrayList<Image>> getImagenLiveData() {
+        return imagenLiveData;
+    }
 
     public MutableLiveData<Long> getEditFloraLiveData() {
         return editFloraLiveData;

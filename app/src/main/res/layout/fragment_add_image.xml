@@ -44,18 +44,20 @@
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivGaleria"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_IDImagen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="IdFlora"
+            android:editable="false"
+            android:hint="Nombre Flora"
             android:imeOptions="actionNext"
-            android:inputType="number"
+            android:inputType="text"
             android:textColor="#EFE9E9"
-            android:textColorHint="@color/design_default_color_background" />
+            android:textColorHint="@color/design_default_color_background"
+            android:visibility="visible" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

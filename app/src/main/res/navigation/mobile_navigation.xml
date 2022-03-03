@@ -49,5 +49,8 @@
         <action
             android:id="@+id/action_editFloraFragment_to_nav_slideshow"
             app:destination="@id/nav_slideshow" />
+        <action
+            android:id="@+id/action_editFloraFragment_to_nav_add_Image"
+            app:destination="@id/nav_add_Image" />
     </fragment>
 </navigation>
