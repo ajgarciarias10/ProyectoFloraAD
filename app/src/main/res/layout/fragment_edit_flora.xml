@@ -42,6 +42,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,6 +64,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,6 +86,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,6 +108,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,6 +130,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,6 +152,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -168,6 +174,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -189,6 +196,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -210,6 +218,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -231,6 +240,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -252,6 +262,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -273,6 +284,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -294,6 +306,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -315,6 +328,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -336,6 +350,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -357,6 +372,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -378,6 +394,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -399,6 +416,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -420,7 +438,8 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -441,6 +460,7 @@
                     android:imeOptions="actionGo"
                     android:inputType="text"
                     android:textColor="#EFE9E9"
+                    android:textSize="20sp"
                     tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>

@@ -44,7 +44,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:layout_constraintVertical_bias="0.65"
         app:layout_constraintVertical_chainStyle="packed">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -57,6 +58,7 @@
             android:inputType="text"
             android:textColor="#EFE9E9"
             android:textColorHint="@color/design_default_color_background"
+            android:textSize="20sp"
             android:visibility="visible" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +80,8 @@
             android:hint="Descipcion"
             android:imeOptions="actionNext"
             android:inputType="text"
-            android:textColor="#EFE9E9" />
+            android:textColor="#EFE9E9"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -107,7 +110,8 @@
             android:imeOptions="actionNext"
             android:inputType="text"
             android:textColor="#EFE9E9"
-            android:textColorHint="#C5BEBE" />
+            android:textColorHint="#C5BEBE"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
@@ -126,6 +130,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.26" />
+        app:layout_constraintGuide_percent="0.35" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

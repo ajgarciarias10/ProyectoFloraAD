@@ -87,6 +87,7 @@ public class Repository {
 
 
 //region metodos para obtener Flora Crear, flora Guaradar, Imagen Editar, Flora Borrar flora, Borrar Imagen
+//METODO PARA obtener LA FLORA
     public void getFlora() {
         Call<ArrayList<Flora>> call = floraClient.getFlora();
         call.enqueue(new Callback<ArrayList<Flora>>() {
@@ -100,19 +101,7 @@ public class Repository {
             }
         });
     }
-    public void getFloraNombre(String nombre) {
-        Call<Flora> call = floraClient.getFloraNombre(nombre);
-        call.enqueue(new Callback<Flora>() {
-            @Override
-            public void onResponse(Call<Flora>call, Response<Flora> response) {
-                floraLiveData2.setValue(response.body());
-            }
-            @Override
-            public void onFailure(Call<Flora> call, Throwable t) {
-
-            }
-        });
-    }
+    //METODO PARA CREAR LA FLORA
     public void createFlora(Flora flora) {
         Call<CreateResponse> call = floraClient.createFlora(flora);
         call.enqueue(new Callback<CreateResponse>() {
@@ -127,6 +116,7 @@ public class Repository {
             }
         });
     }
+    //METODO PARA GUARDAR IMAGEN
     public void saveImagen(Intent intent, Imagen imagen) {
         String nombre = "xyzyx.abc";
         copyData(intent, nombre);
@@ -134,6 +124,7 @@ public class Repository {
         Log.v("xyzyx", file.getAbsolutePath());
         subirImagen(file, imagen);
     }
+    //METODO PARA SUBIR IMAGEN
     public void subirImagen(File file, Imagen imagen) {
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("photo", imagen.nombre, requestFile);
@@ -151,6 +142,7 @@ public class Repository {
             }
         });
     }
+    //METODO PARA EDITAR FLORA
     public void editFlora(long id, Flora flora) {
         Call<RowsResponse> call = floraClient.editFlora(id,flora);
         call.enqueue(new Callback<RowsResponse>() {
@@ -166,6 +158,7 @@ public class Repository {
             }
         });
     }
+    //METODO PARA BORRAR FLORA
     public void deleteFlora(long id) {
         Call<RowsResponse> call = floraClient.deleteFlora(id);
         call.enqueue(new Callback<RowsResponse>() {
@@ -181,6 +174,7 @@ public class Repository {
             }
         });
     }
+    //METODO PARA BORRAR IMAGEN
     public void deleteImagen(long id) {
         Call<RowsResponse> call = floraClient.deleteImagen(id);
         call.enqueue(new Callback<RowsResponse>() {

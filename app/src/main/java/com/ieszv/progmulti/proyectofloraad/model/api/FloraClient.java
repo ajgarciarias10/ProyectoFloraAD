@@ -21,9 +21,6 @@ public interface FloraClient {
     //Obtener Flora por su ID
     @GET("api/flora/{id}")
     Call<Flora> getFlora(@Path("id") long id);
-    //Intento que a partir de introudcir el nombre obtener el id //Pero no va
-    @GET("api/flora/{nombre}")
-    Call<Flora>getFloraNombre(@Path("nombre") String nombre);
     //Sacar Flora desde la ruta de flora
     @GET("api/flora")
     Call<ArrayList<Flora>> getFlora();
