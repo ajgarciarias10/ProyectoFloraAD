@@ -44,7 +44,7 @@ public class FloraAdapter extends RecyclerView.Adapter<ViewHolderFlora> {
         holder.tv_flora.setText(flora.getBiotipo());
         holder.tv_nombre.setText(flora.getNombre());
         //Picasso.get().load(url).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(holder.iv_Flora);
-        Glide.with(context).load(url).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.iv_Flora);
+        Glide.with(context).load(url).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).into(holder.iv_Flora);
 
         Log.v("xyz",url);
 
