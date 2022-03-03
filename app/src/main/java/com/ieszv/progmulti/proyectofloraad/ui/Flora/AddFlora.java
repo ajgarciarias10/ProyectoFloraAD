@@ -40,13 +40,14 @@ import com.ieszv.progmulti.proyectofloraad.viewmodel.AddFloraViewModel;
       private void initialize() {
           mode = 0;
           AddFloraViewModel avm = new ViewModelProvider(this).get(AddFloraViewModel.class);
-          avm.getAddFloraLiveData().observe(this, new Observer<Long>() {
+          avm.getAddFloraLiveData().observe(getViewLifecycleOwner(), new Observer<Long>() {
               @Override
               public void onChanged(Long aLong) {
                   if(aLong > 0) {
-                      mode=1;
+
                       NavHostFragment.findNavController(AddFlora.this)
                               .navigate(R.id.action_nav_add_flora_to_nav_add_Image);
+                      mode=1;
                   } else {
                       Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG).show();
                   }
@@ -56,7 +57,7 @@ import com.ieszv.progmulti.proyectofloraad.viewmodel.AddFloraViewModel;
               @Override
               public void onClick(View v) {
                   NavHostFragment.findNavController(AddFlora.this)
-                          .navigate(R.id.action_nav_add_flora_to_nav_add_Image);;
+                          .navigate(R.id.action_nav_add_flora_to_nav_home);;
               }
           });
 
@@ -106,7 +107,7 @@ import com.ieszv.progmulti.proyectofloraad.viewmodel.AddFloraViewModel;
           flora.setDistribucion(binding.distribucion.getText().toString());
           flora.setExpresion_sexual(binding.sexualExpresion.getText().toString());
           flora.setFamilia(binding.familia.getText().toString());
-          flora.setPolinizacion(binding.polinizacion.toString());
+          flora.setPolinizacion(binding.polinizacion.getText().toString());
           flora.setFitosociologia(binding.fitosociologia.getText().toString());
           flora.setFructificacion(binding.fructificacion.getText().toString());
           flora.setNumero_cromosomatico(binding.numeroCromosmatico.getText().toString());

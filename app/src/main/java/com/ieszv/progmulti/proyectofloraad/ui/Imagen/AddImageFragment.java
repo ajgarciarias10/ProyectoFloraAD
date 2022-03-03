@@ -76,7 +76,7 @@ public class AddImageFragment extends Fragment {
         mavm = new ViewModelProvider(this).get(SlideshowViewModel.class); //obtengo viewmodel de la actividad
         MutableLiveData<ArrayList<Flora>> floraList = mavm.getFloraLiveData();
         mavm.getFlora();
-        floraList.observe(this,  floras -> {
+        floraList.observe(getViewLifecycleOwner(),  floras -> {
          if(AddFlora.mode == 1) {
               id =  floras.get(mavm.getFloraLiveData().getValue().size() - 1).getId();
              binding.etIDImagen.setText(floras.get(mavm.getFloraLiveData().getValue().size() - 1).getNombre() + "");
@@ -86,8 +86,6 @@ public class AddImageFragment extends Fragment {
              binding.etIDImagen.setText(String.valueOf(florita.getNombre()));
 
          }
-
-
             AddFlora.mode=0;
         });
 
