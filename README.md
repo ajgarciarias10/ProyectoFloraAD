@@ -1,7 +1,7 @@
 # ProyectoFloraAD
 This program uses a database made by Laravel, an open source language,
-and this program performs insertion of Flora with their respective images,
-edits and deletes them.
+and this program performs insertion of Flora with their respective images,edits and deletes them.
+--------------------------------------------------------------------------------------------------------------------
 ![INDEX ](https://user-images.githubusercontent.com/73525861/156179117-679bfc06-39cb-4253-bd55-09173379ea52.png)
 --------------------------------------------------------------------------------------------------------------------
 #LIST WITH SOME FLORAS 
